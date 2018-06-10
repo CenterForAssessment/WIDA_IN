@@ -1,6 +1,6 @@
 ##########################################################################################
 ###
-### Script for calculating SGPs for 2010-2011, 2011-2012, 2012-2013 for WIDA/ACCESS GA
+### Script for calculating SGPs for 2017-2018 WIDA/ACCESS Indiana
 ###
 ##########################################################################################
 
@@ -13,20 +13,20 @@ options(error=recover)
 
 ### Load Data
 
-load("Data/WIDA_GA_Data_LONG.Rdata")
+load("Data/WIDA_IN_Data_LONG.Rdata")
 
 
 ### Run analyses
 
-WIDA_GA_SGP <- abcSGP(
-		WIDA_GA_Data_LONG,
+WIDA_IN_SGP <- abcSGP(
+		WIDA_IN_Data_LONG,
 		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "visualizeSGP", "outputSGP"),
 		sgp.percentiles=TRUE,
 		sgp.projections=TRUE,
 		sgp.projections.lagged=TRUE,
-		sgp.percentiles.baseline=TRUE,
-		sgp.projections.baseline=TRUE,
-		sgp.projections.lagged.baseline=TRUE,
+		sgp.percentiles.baseline=FALSE,
+		sgp.projections.baseline=FALSE,
+		sgp.projections.lagged.baseline=FALSE,
         get.cohort.data.info=TRUE,
 		sgp.target.scale.scores=TRUE,
 		plot.types=c("growthAchievementPlot", "studentGrowthPlot"),
@@ -36,4 +36,4 @@ WIDA_GA_SGP <- abcSGP(
 
 ### Save results
 
-save(WIDA_GA_SGP, file="Data/WIDA_GA_SGP.Rdata")
+save(WIDA_IN_SGP, file="Data/WIDA_IN_SGP.Rdata")
