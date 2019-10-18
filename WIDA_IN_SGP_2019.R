@@ -21,7 +21,7 @@ load("Data/WIDA_IN_Data_LONG_2019.Rdata")
 
 WIDA_IN_SGP <- updateSGP(
 		WIDA_IN_SGP,
-		WIDA_IN_Data_LONG,
+		WIDA_IN_Data_LONG_2019,
 		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "visualizeSGP", "outputSGP"),
 		sgp.percentiles=TRUE,
 		sgp.projections=TRUE,
