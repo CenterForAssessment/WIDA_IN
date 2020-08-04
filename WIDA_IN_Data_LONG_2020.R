@@ -48,12 +48,6 @@ WIDA_IN_Data_LONG_2020[,VALID_CASE := "VALID_CASE"]
 WIDA_IN_Data_LONG_2020[,CONTENT_AREA := "READING"]
 
 
-### Invalidate Cases with missing Scale Scores
-
-WIDA_IN_Data_LONG_2020[is.na(SCALE_SCORE), VALID_CASE := "INVALID_CASE"]
-WIDA_IN_Data_LONG_2020[is.na(GRADE), VALID_CASE := "INVALID_CASE"]
-
-
 ### Check for duplicates
 
 setkey(WIDA_IN_Data_LONG_2020, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID, SCALE_SCORE)
