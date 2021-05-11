@@ -1,0 +1,85 @@
+####################################################################################
+###                                                                              ###
+###     Configurations for STRAIGHT (skip-year) READING projections in 2019      ###
+###                                                                              ###
+####################################################################################
+
+READING_2019.config <- list(
+    READING.2019 = list(
+        sgp.content.areas=rep("READING", 2),
+        sgp.baseline.content.areas=rep("READING", 2),
+        sgp.panel.years=c("2019", "2020"),
+        sgp.baseline.panel.years=c("2019", "2020"),
+        sgp.grade.sequences=list(c("0", "1")),
+        sgp.baseline.grade.sequences=list(c("0", "1")),
+        sgp.projection.baseline.content.areas="READING",
+        sgp.projection.baseline.panel.years="2020",
+        sgp.projection.baseline.grade.sequences=list(c("0")),
+        sgp.projection.sequence="READING_GRADE_0"),
+    READING.2019 = list(
+        sgp.content.areas=rep("READING", 3),
+        sgp.baseline.content.areas=rep("READING", 3),
+        sgp.baseline.panel.years=c("2016", "2017", "2019"),
+        sgp.panel.years=c("2016", "2017", "2019"),
+        sgp.grade.sequences=list(c("3", "4", "6")),
+        sgp.baseline.grade.sequences=list(c("3", "4", "6")),
+        sgp.projection.baseline.content.areas="READING",
+        sgp.projection.baseline.panel.years="2019",
+        sgp.projection.baseline.grade.sequences=list(c("4")),
+        sgp.projection.sequence="READING_GRADE_4"),
+    READING.2019 = list(
+        sgp.content.areas=rep("READING", 3),
+        sgp.baseline.content.areas=rep("READING", 3),
+        sgp.baseline.panel.years=c("2016", "2017", "2019"),
+        sgp.panel.years=c("2016", "2017", "2019"),
+        sgp.grade.sequences=list(c("4", "5", "7")),
+        sgp.baseline.grade.sequences=list(c("4", "5", "7")),
+        sgp.projection.baseline.content.areas="READING",
+        sgp.projection.baseline.panel.years="2019",
+        sgp.projection.baseline.grade.sequences=list(c("5")),
+        sgp.projection.sequence="READING_GRADE_5"),
+    READING.2019 = list(
+        sgp.content.areas=rep("READING", 3),
+        sgp.baseline.content.areas=rep("READING", 3),
+        sgp.baseline.panel.years=c("2016", "2017", "2019"),
+        sgp.panel.years=c("2016", "2017", "2019"),
+        sgp.grade.sequences=list(c("5", "6", "8")),
+        sgp.baseline.grade.sequences=list(c("5", "6", "8")),
+        sgp.projection.baseline.content.areas="READING",
+        sgp.projection.baseline.panel.years="2019",
+        sgp.projection.baseline.grade.sequences=list(c("6")),
+        sgp.projection.sequence="READING_GRADE_6"),
+    READING.2019 = list(
+        sgp.content.areas=c("READING", "READING", "READING_PSAT_9"),
+        sgp.baseline.content.areas=c("READING", "READING", "READING_PSAT_9"),
+        sgp.baseline.panel.years=c("2016", "2017", "2019"),
+        sgp.panel.years=c("2016", "2017", "2019"),
+        sgp.grade.sequences=list(c("6", "7", "9")),
+        sgp.baseline.grade.sequences=list(c("6", "7", "9")),
+        sgp.projection.baseline.content.areas="READING",
+        sgp.projection.baseline.panel.years="2019",
+        sgp.projection.baseline.grade.sequences=list(c("7")),
+        sgp.projection.sequence="READING_GRADE_7"),
+    READING.2019 = list(
+        sgp.content.areas=c("READING", "READING", "READING_PSAT_10"),
+        sgp.baseline.content.areas=c("READING", "READING", "READING_PSAT_10"),
+        sgp.baseline.panel.years=c("2016", "2017", "2019"),
+        sgp.panel.years=c("2016", "2017", "2019"),
+        sgp.grade.sequences=list(c("7", "8", "10")),
+        sgp.baseline.grade.sequences=list(c("7", "8", "10")),
+        sgp.projection.baseline.content.areas="READING",
+        sgp.projection.baseline.panel.years="2019",
+        sgp.projection.baseline.grade.sequences=list(c("8")),
+        sgp.projection.sequence="READING_GRADE_8")#,
+    # READING.2019 = list( # Can't project to READING_SAT, so GRADE 8 is the end of the line.
+    #     sgp.content.areas=c("READING", "READING", "READING_PSAT_10"),
+    #     sgp.baseline.content.areas=c("READING", "READING", "READING_PSAT_10"),
+    #     sgp.baseline.panel.years=c("2016", "2017", "2019"),
+    #     sgp.panel.years=c("2016", "2017", "2019"),
+    #     sgp.grade.sequences=list(c("7", "8", "10")),
+    #     sgp.baseline.grade.sequences=list(c("7", "8", "10")),
+    #     sgp.projection.baseline.content.areas="READING",
+    #     sgp.projection.baseline.panel.years="2019",
+    #     sgp.projection.baseline.grade.sequences=list(c("9")),
+    #     sgp.projection.sequence="READING_GRADE_9")
+)
