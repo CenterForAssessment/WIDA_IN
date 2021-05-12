@@ -14,11 +14,6 @@ load("Data/WIDA_IN_SGP_LONG_Data.Rdata")
 load("Data/WIDA_IN_Baseline_Matrices.Rdata")
 SGPstateData[["WIDA_IN"]][["Baseline_splineMatrix"]][["Coefficient_Matrices"]] <- WIDA_IN_Baseline_Matrices
 
-###   Read in BASELINE percentiles configuration scripts and combine
-source("SGP_CONFIG/2020/BASELINE/Percentiles/READING.R")
-
-WIDA_IN_2020_Baseline_Config <- READING_2020.config
-
 #####
 ###   Run BASELINE SGP analysis - create new WIDA_IN_SGP object with historical data
 #####
@@ -33,7 +28,6 @@ SGPstateData[["WIDA_IN"]][["Assessment_Program_Information"]][["CSEM"]] <- NULL
 WIDA_IN_SGP <- abcSGP(
         sgp_object = WIDA_IN_SGP_LONG_Data,
         steps = c("prepareSGP", "analyzeSGP", "combineSGP", "outputSGP"),
-        sgp.config = WIDA_IN_2020_Baseline_Config,
         sgp.percentiles = FALSE,
         sgp.projections = FALSE,
         sgp.projections.lagged = FALSE,
@@ -52,4 +46,4 @@ data.table::setnames(WIDA_IN_SGP@Data,
   c("SCALE_SCORE_PRIOR_BASELINE", "SCALE_SCORE_PRIOR_STANDARDIZED_BASELINE", "SCALE_SCORE_PRIOR", "SCALE_SCORE_PRIOR_STANDARDIZED"))
 
 ###   Save results
-#save(WIDA_IN_SGP, file="Data/WIDA_IN_SGP.Rdata")
+save(WIDA_IN_SGP, file="Data/WIDA_IN_SGP.Rdata")

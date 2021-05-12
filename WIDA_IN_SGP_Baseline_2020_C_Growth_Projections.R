@@ -14,11 +14,6 @@ load("Data/WIDA_IN_SGP.Rdata")
 load("Data/WIDA_IN_Baseline_Matrices.Rdata")
 SGPstateData[["WIDA_IN"]][["Baseline_splineMatrix"]][["Coefficient_Matrices"]] <- WIDA_IN_Baseline_Matrices
 
-###   Read in BASELINE projections configuration scripts and combine
-#source("SGP_CONFIG/2020/BASELINE/Projections/READING.R")
-
-#WIDA_IN_2019_Baseline_Config <- READING_2020.config
-
 #####
 ###   Run projections analysis - run abcSGP on object from BASELINE SGP analysis
 #####
@@ -27,7 +22,6 @@ WIDA_IN_SGP <- abcSGP(
         sgp_object = WIDA_IN_SGP,
 		years="2020",
         steps = c("prepareSGP", "analyzeSGP"), # no changes to @Data - don't combine or output
-#        sgp.config = WIDA_IN_2020_Baseline_Config,
         sgp.percentiles = FALSE,
         sgp.projections = FALSE,
         sgp.projections.lagged = FALSE,
