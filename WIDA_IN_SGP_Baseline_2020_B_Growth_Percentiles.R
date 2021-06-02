@@ -10,9 +10,13 @@ require(SGP)
 ###   Load data and remove years that will not be used.
 load("Data/WIDA_IN_SGP_LONG_Data.Rdata")
 
+### Test for BASELINE related variable in LONG data and NULL out if they exist
+if (length(tmp.names <- grep("BASELINE|SS", names(WIDA_IN_SGP_LONG_Data))) > 0) {
+		WIDA_IN_SGP_LONG_Data[,eval(tmp.names):=NULL]
+}
+
 ###   Add single-cohort baseline matrices to SGPstateData
-load("Data/WIDA_IN_Baseline_Matrices.Rdata")
-SGPstateData[["WIDA_IN"]][["Baseline_splineMatrix"]][["Coefficient_Matrices"]] <- WIDA_IN_Baseline_Matrices
+SGPstateData <- SGPmatrices::addBaselineMatrices("WIDA_IN", "2021")
 
 #####
 ###   Run BASELINE SGP analysis - create new WIDA_IN_SGP object with historical data
