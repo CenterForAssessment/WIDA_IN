@@ -1,6 +1,6 @@
 ##########################################################################################
 ###
-### Script for calculating SGPs for 2019-2020 WIDA/ACCESS Indiana
+### Script for calculating SGPs for 2020-2021 WIDA/ACCESS Indiana
 ###
 ##########################################################################################
 
@@ -12,14 +12,14 @@ require(SGP)
 ### Load Data
 
 load("Data/WIDA_IN_SGP.Rdata")
-load("Data/WIDA_IN_Data_LONG_2020.Rdata")
+load("Data/WIDA_IN_Data_LONG_2021.Rdata")
 
 
 ### Run analyses
 
 WIDA_IN_SGP <- updateSGP(
 		WIDA_IN_SGP,
-		WIDA_IN_Data_LONG_2020,
+		WIDA_IN_Data_LONG_2021,
 		steps=c("prepareSGP", "analyzeSGP", "combineSGP", "visualizeSGP", "outputSGP"),
 		sgp.percentiles=TRUE,
 		sgp.projections=TRUE,
