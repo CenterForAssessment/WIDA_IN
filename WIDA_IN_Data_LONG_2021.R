@@ -27,14 +27,14 @@ strhead <- function (s, n) {
 
 ### Load Data
 
-WIDA_IN_Data_LONG_2021 <- fread("Data/Base_Files/WIDA_ACCESS_IN_2020_2021_PRELIMINARY.txt")
+WIDA_IN_Data_LONG_2021 <- fread("Data/Base_Files/WIDA_ACCESS_IN_2020_2021_FINAL.csv")
 
 
 ### Clean Up Data
 
 WIDA_IN_Data_LONG_2021[,STN:=NULL]
-WIDA_IN_Data_LONG_2021[,3:=NULL] ### Remove extraneous Grade variable
-old.names <- c("District Number", "School Number", "STUDENT_ID", "Grade", "Composite (Overall) Scale Score", "Composite (Overall) Proficiency Level")
+WIDA_IN_Data_LONG_2021[,school_year_id:=NULL]
+old.names <- c("IDOE_CORPORATION_ID", "IDOE_SCHOOL_ID", "STUDENT_ID", "Grade", "Composite_Overall_Scale Score", "Composite_Overall_Proficiency Level")
 setnames(WIDA_IN_Data_LONG_2021, c("DISTRICT_NUMBER", "SCHOOL_NUMBER", "ID", "GRADE", "SCALE_SCORE", "ACHIEVEMENT_LEVEL_ORIGINAL"))
 WIDA_IN_Data_LONG_2021[,YEAR := "2021"]
 WIDA_IN_Data_LONG_2021[,ID := as.character(ID)]
@@ -62,6 +62,10 @@ setkey(WIDA_IN_Data_LONG_2021, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID)
 
 setcolorder(WIDA_IN_Data_LONG_2021, c(9, 10, 7, 4, 3, 5, 8, 6, 1, 2))
 
+
+### INVALIDATE cases
+
+WIDA_IN_Data_LONG_2021[is.na(GRADE), VALID_CASE:="INVALID_CASE"]
 
 ### Save data
 
