@@ -27,15 +27,15 @@ strhead <- function (s, n) {
 
 ### Load Data
 
-WIDA_IN_Data_LONG_2022 <- fread("Data/Base_Files/WIDA_ACCESS_IN_2021_2022.csv")
+WIDA_IN_Data_LONG_2022 <- fread("Data/Base_Files/WIDA_ACCESS_IN_2021_2022.txt")
 
 
 ### Clean Up Data
 
 WIDA_IN_Data_LONG_2022[,STN:=NULL]
-WIDA_IN_Data_LONG_2022[,school_year_id:=NULL]
-old.names <- c("STUDENT_ID", "Grade", "Composite_Overall_Scale Score", "Composite_Overall_Proficiency Level")
-setnames(WIDA_IN_Data_LONG_2022, c("ID", "GRADE", "SCALE_SCORE", "ACHIEVEMENT_LEVEL_ORIGINAL"))
+WIDA_IN_Data_LONG_2022[,SCHOOL_YEAR_ID:=NULL]
+old.names <- c("IDOE_CORPORATION_ID", "IDOE_SCHOOL_ID", "STUDENT_ID", "Grade", "Composite_Overall_Scale Score", "Composite_Overall_Proficiency Level")
+setnames(WIDA_IN_Data_LONG_2022, c("DISTRICT_NUMBER", "SCHOOL_NUMBER", "ID", "GRADE", "SCALE_SCORE", "ACHIEVEMENT_LEVEL_ORIGINAL"))
 WIDA_IN_Data_LONG_2022[,YEAR := "2022"]
 WIDA_IN_Data_LONG_2022[,ID := as.character(ID)]
 WIDA_IN_Data_LONG_2022[,GRADE:=as.character(as.numeric(GRADE))]
@@ -59,7 +59,7 @@ setkey(WIDA_IN_Data_LONG_2022, VALID_CASE, CONTENT_AREA, YEAR, GRADE, ID)
 
 ### Reorder
 
-setcolorder(WIDA_IN_Data_LONG_2022, c(7, 8, 5, 2, 1, 3, 6, 4))
+setcolorder(WIDA_IN_Data_LONG_2022, c(9, 10, 7, 4, 3, 5, 8, 6, 1, 2))
 
 
 ### INVALIDATE cases
