@@ -1,0 +1,46 @@
+{
+  "schema_version": "sgpc.analysis.v0.1",
+  "analysis_id": "wida-in-2025-sgpc-percentiles",
+  "mode": "norm_referenced_sgpc",
+  "input": {
+    "long_data": "../../Data/WIDA_IN_Data_LONG_2025.Rdata",
+    "object_name": "WIDA_IN_Data_LONG_2025"
+  },
+  "columns": {
+    "id": "ID",
+    "content_area": "CONTENT_AREA",
+    "year": "YEAR",
+    "grade": "GRADE",
+    "score": "SCALE_SCORE",
+    "valid_case": "VALID_CASE"
+  },
+  "analyses": [
+    {
+      "condition_id": "READING_2024_2025_G1_G2",
+      "content_area": "READING",
+      "panel_years": ["2024", "2025"],
+      "grade_sequence": ["1", "2"],
+      "span": 1,
+      "reference_population": "state_valid_cases"
+    },
+    {
+      "condition_id": "READING_2023_2025_G0_G2",
+      "content_area": "READING",
+      "panel_years": ["2023", "2025"],
+      "grade_sequence": ["0", "2"],
+      "span": 2,
+      "reference_population": "state_valid_cases"
+    }
+  ],
+  "copulas": {
+    "empirical": ["raw", "bernstein"],
+    "parametric": ["gaussian"],
+    "boundary": ["comonotonic"]
+  },
+  "outputs": {
+    "directory": "results/2025",
+    "manifest": "results/2025/manifest.json",
+    "student_results": "results/2025/student_sgpc.rds",
+    "condition_summary": "results/2025/condition_summary.json"
+  }
+}
