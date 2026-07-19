@@ -16,6 +16,10 @@ load("Data/WIDA_IN_Data_LONG_2026.Rdata")
 ###   Add single-cohort baseline matrices to SGPstateData
 SGPstateData <- SGPmatrices::addBaselineMatrices("WIDA_IN", "2026")
 
+### Fix ACHIEVEMENT_LEVEL
+WIDA_IN_SGP@Data[ACHIEVEMENT_LEVEL_ORIGINAL %in% c("4.0", "4.1", "4.2"), ACHIEVEMENT_LEVEL:="WIDA Level 4"]
+WIDA_IN_SGP@Data[ACHIEVEMENT_LEVEL_ORIGINAL %in% c("4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9"), ACHIEVEMENT_LEVEL:="WIDA Level 4.3"]
+
 ### Parameters
 parallel.config <- list(BACKEND="MIRAI", WORKERS=list(PERCENTILES=4, BASELINE_PERCENTILES=4, PROJECTIONS=4, LAGGED_PROJECTIONS=4, SGP_SCALE_SCORE_TARGETS=4, GA_PLOTS=1, SG_PLOTS=1))
 
