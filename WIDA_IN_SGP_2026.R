@@ -41,7 +41,6 @@ WIDA_IN_SGP <- updateSGP(
 		save.intermediate.results=FALSE,
 		parallel.config=parallel.config)
 
-
 ### Run abcSGP for baseline referenced SGPs
 WIDA_IN_SGP@Data[YEAR<"2026", SCALE_SCORE_OLD_SCALE:=SCALE_SCORE]
 setnames(WIDA_IN_SGP@Data, c("SCALE_SCORE_OLD_SCALE", "SCALE_SCORE"), c("SCALE_SCORE", "SCALE_SCORE_OLD_SCALE"))
@@ -65,4 +64,4 @@ outputSGP(WIDA_IN_SGP)
 
 
 ### Save results
-#save(WIDA_IN_SGP, file="Data/WIDA_IN_SGP.Rdata")
+save(WIDA_IN_SGP, file="Data/WIDA_IN_SGP.Rdata")
