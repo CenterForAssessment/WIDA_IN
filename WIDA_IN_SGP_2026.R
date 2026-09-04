@@ -14,7 +14,7 @@ load("Data/WIDA_IN_SGP.Rdata")
 load("Data/WIDA_IN_Data_LONG_2026.Rdata")
 
 ###   Add single-cohort baseline matrices to SGPstateData
-SGPstateData <- SGPmatrices::addBaselineMatrices("WIDA_IN", "2026")
+SGPstateData <- SGPmatrices::addBaselineMatrices("WIDA_IN", "2026") ### Uses 2023/2024/2025 WIDA/ACCESS IN baseline matrices embedded in SGPmatrices package
 
 ### Fix ACHIEVEMENT_LEVEL
 WIDA_IN_SGP@Data[ACHIEVEMENT_LEVEL_ORIGINAL %in% c("4.0", "4.1", "4.2"), ACHIEVEMENT_LEVEL:="WIDA Level 4"]
